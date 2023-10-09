@@ -19,6 +19,8 @@ import com.sergisirvent.myf1app.model.ResourceState
 import com.sergisirvent.myf1app.presentation.viewmodel.DriversDetailState
 import com.sergisirvent.myf1app.presentation.viewmodel.DriversViewModel
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 
 class DriversDetailFragment : Fragment() {
@@ -81,7 +83,11 @@ class DriversDetailFragment : Fragment() {
         binding.tvDetailDriverNumber.text = numberText
         binding.tvDetailDriverGivenName.text = f1Driver.givenName
         binding.tvDetailDriverFamilyName.text = f1Driver.familyName.uppercase()
-        binding.tvDriverDetailDateBirth.text = f1Driver.dateOfBirth
+
+        val date = LocalDate.parse(f1Driver.dateOfBirth)
+        val formatter = DateTimeFormatter.ofPattern("dd - MMMM - yyyy")
+        binding.tvDriverDetailDateBirth.text = date.format(formatter)
+
         binding.tvDriverDetailNationality.text = f1Driver.nationality
 
         Glide.with(requireContext())
@@ -100,19 +106,16 @@ class DriversDetailFragment : Fragment() {
         }
 
 
+
+
     }
 
     private fun showErrorDialog(error: String) {
-        /*MaterialAlertDialogBuilder(requireContext())
-            .setTitle(R.string.error)
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.error_detail)
             .setMessage(error)
             .setPositiveButton(R.string.action_ok, null)
-            .setNegativeButton(R.string.action_retry) { dialog, witch ->
-                charactersViewModel.fetchCharacters()
-            }
             .show()
-
-         */
     }
 
 

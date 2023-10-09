@@ -89,7 +89,7 @@
                 tools:text="Albert Park Grand Prix Circuit"
                 android:textColor="@color/main_red_color"
                 android:textStyle="bold"
-                android:textSize="30sp"
+                android:textSize="23sp"
                 android:ellipsize="end"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

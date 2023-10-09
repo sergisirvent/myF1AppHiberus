@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.sergisirvent.myf1app"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -71,4 +71,6 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1")
+
+    implementation ("com.google.android.gms:play-services-maps:18.1.0")
 }

@@ -3,13 +3,16 @@ package com.sergisirvent.myf1app.presentation.fragment
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.sergisirvent.myf1app.R
 import com.sergisirvent.myf1app.databinding.FragmentCircuitsDetailBinding
 import com.sergisirvent.myf1app.databinding.FragmentDriversBinding
@@ -43,7 +46,6 @@ class CircuitsDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initViewModel()
-
         circuitsViewModel.fetchCircuit(args.circuitId)
     }
 
@@ -51,8 +53,6 @@ class CircuitsDetailFragment : Fragment() {
         circuitsViewModel.getCircuitDetailLiveData().observe(viewLifecycleOwner) {state ->
             handleDriverDetailState(state)
         }
-
-
     }
 
     private fun handleDriverDetailState(state: CircuitsDetailState) {
@@ -95,22 +95,28 @@ class CircuitsDetailFragment : Fragment() {
             findNavController().popBackStack()
         }
 
+        binding.btnCircuitDetailMaps.setOnClickListener {
+            val googleMapsUri = Uri.parse("geo:${circuit.Location.lat.toDouble()},${circuit.Location.long.toDouble()}")
+            val mapIntent = Intent(Intent.ACTION_VIEW, googleMapsUri)
 
+            mapIntent.setPackage("com.google.android.apps.maps")// se fuerza el uso de google maps
+
+            if (mapIntent.resolveActivity(requireActivity().packageManager) != null) {
+                startActivity(mapIntent)
+            } else {
+                Toast.makeText(requireContext(),getString(R.string.error_google_maps),Toast.LENGTH_LONG).show()
+            }
+        }
 
 
     }
 
     private fun showErrorDialog(error: String) {
-        /*MaterialAlertDialogBuilder(requireContext())
-            .setTitle(R.string.error)
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.error_detail)
             .setMessage(error)
             .setPositiveButton(R.string.action_ok, null)
-            .setNegativeButton(R.string.action_retry) { dialog, witch ->
-                charactersViewModel.fetchCharacters()
-            }
             .show()
-
-         */
     }
 
 

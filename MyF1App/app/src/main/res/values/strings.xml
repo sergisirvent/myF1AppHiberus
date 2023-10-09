@@ -14,17 +14,21 @@
     <!-- Drivers list -->
     <string name="default_url_image">https://png.pngtree.com/png-vector/20191030/ourlarge/pngtree-racing-helmet-icon-simple-style-png-image_1911229.jpg</string>
     <string name="season_actual_year">2023</string>
-    <string name="error">Error fetching list</string>
+    <string name="error_list">Error fetching list</string>
+    <string name="error_detail">Error fetching item</string>
     <string name="action_ok">OK</string>
     <string name="action_retry">Retry</string>
 
     <!-- DEtail views -->
     <string name="driver_detail_title">Driver detail</string>
     <string name="circuit_detail_title">Circuit detail</string>
+    <string name="map_detail_title">Map view</string>
     <string name="btn_more_info_text">More info</string>
     <string name="driver_detail_info_nationality">Nationality</string>
     <string name="driver_detail_info_date_birth">Date of birth</string>
     <string name="circuit_detail_info_locality">Locality</string>
     <string name="circuit_detail_info_btn_maps">Open in map</string>
+    <string name="error_google_maps">Please install google maps to use this button</string>
+
 
 </resources>

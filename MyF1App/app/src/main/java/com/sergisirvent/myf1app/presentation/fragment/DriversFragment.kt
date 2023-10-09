@@ -79,7 +79,7 @@ class DriversFragment : Fragment() {
 
     private fun showErrorDialog(error: String) {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle(R.string.error)
+            .setTitle(R.string.error_list)
             .setMessage(error)
             .setPositiveButton(R.string.action_ok, null)
             .setNegativeButton(R.string.action_retry) { dialog, witch ->
