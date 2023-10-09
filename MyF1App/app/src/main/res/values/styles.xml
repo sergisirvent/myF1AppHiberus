@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
 
     <!-- Row Items List -->
@@ -23,6 +23,42 @@
             <item name="android:maxLines">2</item>
             <item name="android:ellipsize">end</item>
             <item name="android:textStyle">bold</item>
+        </style>
+
+    <!-- Detail views -->
+
+
+        <style name="detail_page_title" parent="TextAppearance.AppCompat">
+            <item name="android:textStyle">bold</item>
+            <item name="android:textSize">@dimen/page_title_size_detail</item>
+            <item name="android:textColor">@color/main_white_color</item>
+        </style>
+
+        <style name="detail_title_info_item" parent="TextAppearance.AppCompat">
+            <item name="android:textStyle">bold</item>
+            <item name="android:textSize">@dimen/page_title_size_detail</item>
+        </style>
+
+        <style name="detail_text_info_item" parent="TextAppearance.AppCompat">
+            <item name="android:textStyle">italic</item>
+            <item name="android:textSize">@dimen/item_text_size_detail</item>
+        </style>
+        <style name="btn_more_info" parent="TextAppearance.AppCompat">
+            <item name="android:layout_width">wrap_content</item>
+            <item name="android:layout_height">wrap_content</item>
+            <item name="android:layout_margin">@dimen/large_margin</item>
+            <item name="android:text">@string/btn_more_info_text</item>
+            <item name="android:textSize">@dimen/item_text_size_detail</item>
+            <item name="android:padding">@dimen/med_margin</item>
+            <item name="android:backgroundTint">@color/main_red_color</item>
+            <item name="android:textColor">@color/main_white_color</item>
+
+        </style>
+
+        <style name="linear_layout_info_items_detail" parent="TextAppearance.AppCompat">
+            <item name="android:layout_width">match_parent</item>
+            <item name="android:layout_height">wrap_content</item>
+            <item name="android:layout_marginHorizontal" tools:targetApi="33">@dimen/med_margin</item>
         </style>
 
 </resources>

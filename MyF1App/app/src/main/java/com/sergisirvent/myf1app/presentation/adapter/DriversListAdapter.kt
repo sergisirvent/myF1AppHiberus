@@ -13,7 +13,7 @@ class DriversListAdapter() : RecyclerView.Adapter<DriversListAdapter.DriversList
 
     private var f1DriversList : List<F1Driver> = emptyList()
 
-    var onClickListener: () -> Unit = {}
+    var onClickListener: (F1Driver) -> Unit = {}
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DriversListViewHolder {
@@ -29,7 +29,7 @@ class DriversListAdapter() : RecyclerView.Adapter<DriversListAdapter.DriversList
         val item = f1DriversList[position]
 
         holder.rootview.setOnClickListener {
-            onClickListener.invoke()
+            onClickListener.invoke(item)
         }
 
         val driverName = "${item.givenName} ${item.familyName}"

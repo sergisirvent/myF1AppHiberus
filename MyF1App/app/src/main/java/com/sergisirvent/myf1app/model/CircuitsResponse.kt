@@ -21,6 +21,7 @@ data class CircuitTable(
 
 @Serializable
 data class Circuit(
+    val circuitId: String,
     val url: String,
     val circuitName: String,
     val Location: Location

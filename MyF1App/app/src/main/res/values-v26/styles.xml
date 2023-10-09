@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="linear_layout_info_items_detail" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginHorizontal">@dimen/med_margin</item>
+        <item name="android:textSize">@dimen/item_text_size_detail</item>
+    </style>
+</resources>

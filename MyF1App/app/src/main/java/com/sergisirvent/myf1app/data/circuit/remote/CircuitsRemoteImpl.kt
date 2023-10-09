@@ -10,7 +10,7 @@ class CircuitsRemoteImpl(
         return myF1AppService.getCircuits(f1Year).circuitsData.CircuitTable.Circuits
     }
 
-    suspend fun getCircuit(circuitId: Int) : Circuit {
-        return myF1AppService.getCircuit(circuitId)
+    suspend fun getCircuit(circuitId: String) : Circuit {
+        return myF1AppService.getCircuit(circuitId).circuitsData.CircuitTable.Circuits[0]
     }
 }

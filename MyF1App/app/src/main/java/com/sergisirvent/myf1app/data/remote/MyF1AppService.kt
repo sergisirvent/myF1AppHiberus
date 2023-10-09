@@ -17,13 +17,13 @@ interface MyF1AppService {
     suspend fun getDrivers(@Path("year") year: Int): DriversResponse
 
     @GET("drivers/{f1DriverId}.json")
-    suspend fun getDriver(@Path("f1DriverId") f1DriverId: Int): F1Driver
+    suspend fun getDriver(@Path("f1DriverId") f1DriverId: String): DriversResponse
 
     @GET("{year}/circuits.json")
     suspend fun getCircuits(@Path("year") year: Int): CircuitsResponse
 
     @GET("circuits/{circuitId}.json")
-    suspend fun getCircuit(@Path("circuitId") circuitId: Int): Circuit
+    suspend fun getCircuit(@Path("circuitId") circuitId: String): CircuitsResponse
 
 
 }

@@ -22,7 +22,7 @@ class DriversDataImpl(
         }
     }
 
-    override suspend fun getF1Driver(f1DriverId: Int): F1Driver {
+    override suspend fun getF1Driver(f1DriverId: String): F1Driver {
         return f1DriversRemoteImpl.getF1Driver(f1DriverId)
     }
 

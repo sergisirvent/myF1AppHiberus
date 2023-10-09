@@ -13,7 +13,6 @@ import com.sergisirvent.myf1app.model.Location
 
 class CircuitsListAdapter : RecyclerView.Adapter<CircuitsListAdapter.CircuitsListViewHolder> (){
 
-    private var defaultCircuit : Circuit = Circuit("Hola", "Montmelo", Location("d","d","d","d"))
     private var circuitsList : List<Circuit> = emptyList()
 
     var onClickListener: (Circuit) -> Unit = {}
@@ -33,6 +32,10 @@ class CircuitsListAdapter : RecyclerView.Adapter<CircuitsListAdapter.CircuitsLis
 
         val circuitName = item.circuitName
 
+        holder.rootview.setOnClickListener {
+            onClickListener.invoke(item)
+        }
+
         holder.circuitNameTextView.text = circuitName
 
         Glide.with(holder.circuitImageview)
@@ -48,6 +51,7 @@ class CircuitsListAdapter : RecyclerView.Adapter<CircuitsListAdapter.CircuitsLis
 
 
     inner class CircuitsListViewHolder(binding : RowListCircuitItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        val rootview = binding.root
         val circuitNameTextView = binding.tvCircuitsListRow
         val circuitImageview = binding.ivCircuitsListRow
     }

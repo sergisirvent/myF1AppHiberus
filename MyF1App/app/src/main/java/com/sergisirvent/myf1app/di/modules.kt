@@ -13,7 +13,9 @@ import com.sergisirvent.myf1app.data.remote.WikiApiClient
 import com.sergisirvent.myf1app.data.remote.WikipediaService
 import com.sergisirvent.myf1app.domain.CircuitsRepository
 import com.sergisirvent.myf1app.domain.DriversRepository
+import com.sergisirvent.myf1app.domain.usecase.GetCircuitDetailUseCase
 import com.sergisirvent.myf1app.domain.usecase.GetCircuitsUseCase
+import com.sergisirvent.myf1app.domain.usecase.GetDriverDetailUseCase
 import com.sergisirvent.myf1app.domain.usecase.GetDriversUseCase
 import com.sergisirvent.myf1app.presentation.viewmodel.CircuitsViewModel
 import com.sergisirvent.myf1app.presentation.viewmodel.DriversViewModel
@@ -31,8 +33,9 @@ val driversModule = module {
     factory { DriversRemoteImpl(get()) }
     factory <DriversRepository> { DriversDataImpl(get(), get()) }
     factory { GetDriversUseCase(get()) }
+    factory { GetDriverDetailUseCase(get()) }
 
-    viewModel { DriversViewModel(get())}
+    viewModel { DriversViewModel(get(), get())}
 
 
 }
@@ -42,7 +45,8 @@ val circuitsModule = module {
     factory { CircuitsRemoteImpl(get()) }
     factory <CircuitsRepository> { CircuitsDataImpl(get(), get()) }
     factory { GetCircuitsUseCase(get()) }
+    factory { GetCircuitDetailUseCase(get()) }
 
 
-    viewModel { CircuitsViewModel(get())}
+    viewModel { CircuitsViewModel(get(), get())}
 }

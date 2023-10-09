@@ -22,7 +22,7 @@ class CircuitsDataImpl(
         }
     }
 
-    override suspend fun getCircuit(circuitId: Int): Circuit {
+    override suspend fun getCircuit(circuitId: String): Circuit {
         return circuitsRemoteImpl.getCircuit(circuitId)
     }
 

@@ -99,10 +99,12 @@ class DriversFragment : Fragment() {
             )
         )
 
-        driversListAdapter.onClickListener = {
+        driversListAdapter.onClickListener = { driver ->
 
             findNavController().navigate(
-                R.id.action_driversListFragment_to_driversDetailFragment
+                GeneralTabFragmentDirections.actionDriversListFragmentToDriversDetailFragment(
+                    driver.driverId
+                )
             )
 
         }

@@ -30,12 +30,7 @@ class GeneralTabActivity : AppCompatActivity(
 
         setContentView(binding.root)
 
-        loadFragment(GeneralTabFragment())
 
-    }
-
-    fun loadFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().replace(R.id.fcv_general_tab_fragment_container, fragment).commit()
     }
 
 
