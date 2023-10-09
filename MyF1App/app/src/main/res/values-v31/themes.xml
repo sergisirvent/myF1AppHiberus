@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="No_Splash">
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/f1_logo</item>
+    </style>
+</resources>

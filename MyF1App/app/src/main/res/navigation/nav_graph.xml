@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/driverListFragment">
+
+    <fragment
+        android:id="@+id/driverListFragment"
+        android:name="com.sergisirvent.myf1app.presentation.fragment.DriversFragment"
+        tools:layout="@layout/fragment_drivers">
+
+        <action
+            android:id="@+id/action_driversListFragment_to_driversDetailFragment"
+            app:destination="@id/driversDetailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/driversDetailFragment"
+        android:name="com.sergisirvent.myf1app.presentation.fragment.DriversDetailFragment"
+        tools:layout="@layout/fragment_drivers_detail"
+        />
+
+</navigation>

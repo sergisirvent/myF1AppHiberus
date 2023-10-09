@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">MyF1App</string>
+
+
+    <!-- SplashActivity -->
+    <string name="splash_activity_delay_ms">3000</string>
+
+    <!-- General Tab Fragment -->
+    <string name="drivers_tab_layout_name">Drivers</string>
+    <string name="circuit_tab_layout_name">Circuits</string>
+    <string name="invalid_error_tab_layout">Invalid Tab</string>
+    <string name="number_of_tabs_created_general_tab_layout">2</string>
+
+    <!-- Drivers list -->
+    <string name="default_url_image">https://png.pngtree.com/png-vector/20191030/ourlarge/pngtree-racing-helmet-icon-simple-style-png-image_1911229.jpg</string>
+    <string name="season_actual_year">2023</string>
+    <string name="error">Error fetching list</string>
+    <string name="action_ok">OK</string>
+    <string name="action_retry">Retry</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
