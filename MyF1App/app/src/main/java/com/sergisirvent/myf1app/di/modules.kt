@@ -9,8 +9,6 @@ import com.sergisirvent.myf1app.data.driver.remote.DriversRemoteImpl
 import com.sergisirvent.myf1app.data.local.MemoryCache
 import com.sergisirvent.myf1app.data.remote.ApiClient
 import com.sergisirvent.myf1app.data.remote.MyF1AppService
-import com.sergisirvent.myf1app.data.remote.WikiApiClient
-import com.sergisirvent.myf1app.data.remote.WikipediaService
 import com.sergisirvent.myf1app.domain.CircuitsRepository
 import com.sergisirvent.myf1app.domain.DriversRepository
 import com.sergisirvent.myf1app.domain.usecase.GetCircuitDetailUseCase
@@ -25,7 +23,6 @@ import org.koin.dsl.module
 val baseModule = module {
     single { MemoryCache() }
     single<MyF1AppService> {ApiClient.retrofit.create(MyF1AppService::class.java)}
-    single<WikipediaService> {WikiApiClient.retrofit.create(WikipediaService::class.java)}
 }
 
 val driversModule = module {

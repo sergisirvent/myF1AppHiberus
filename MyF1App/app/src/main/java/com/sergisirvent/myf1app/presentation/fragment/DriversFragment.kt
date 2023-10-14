@@ -1,22 +1,22 @@
 package com.sergisirvent.myf1app.presentation.fragment
 
+import android.content.Context
+import android.content.SharedPreferences
+import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.manager.SupportRequestManagerFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.sergisirvent.myf1app.R
 import com.sergisirvent.myf1app.databinding.FragmentDriversBinding
+import com.sergisirvent.myf1app.model.F1Driver
 import com.sergisirvent.myf1app.model.ResourceState
-import com.sergisirvent.myf1app.presentation.GeneralTabActivity
 import com.sergisirvent.myf1app.presentation.adapter.DriversListAdapter
 import com.sergisirvent.myf1app.presentation.viewmodel.DriversListState
 import com.sergisirvent.myf1app.presentation.viewmodel.DriversViewModel
@@ -41,7 +41,6 @@ class DriversFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         initViewModel()
         initUI()
 
@@ -65,7 +64,7 @@ class DriversFragment : Fragment() {
 
             is ResourceState.Success -> {
                 binding.pbDriversList.visibility = View.GONE
-                driversListAdapter.submitList(state.result)
+                driversListAdapter.submitList(state.result, requireContext())
             }
 
             is ResourceState.Error -> {
@@ -100,6 +99,7 @@ class DriversFragment : Fragment() {
         )
 
         driversListAdapter.onClickListener = { driver ->
+            //TODO cambiar para que lea parametros tambien de color y de font
 
             findNavController().navigate(
                 GeneralTabFragmentDirections.actionDriversListFragmentToDriversDetailFragment(
@@ -110,6 +110,8 @@ class DriversFragment : Fragment() {
         }
 
     }
+
+
 
 
 }

@@ -1,12 +1,15 @@
 package com.sergisirvent.myf1app.presentation.fragment
 
+import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -19,6 +22,7 @@ import com.sergisirvent.myf1app.model.ResourceState
 import com.sergisirvent.myf1app.presentation.viewmodel.DriversDetailState
 import com.sergisirvent.myf1app.presentation.viewmodel.DriversViewModel
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
+import java.lang.reflect.Array.getInt
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -79,10 +83,31 @@ class DriversDetailFragment : Fragment() {
 
     private fun initUI(f1Driver: F1Driver) {
 
-        val numberText = "nº${f1Driver.permanentNumber}"
-        binding.tvDetailDriverNumber.text = numberText
+        val preferences = requireContext().getSharedPreferences(
+            ContextCompat.getString(
+                requireContext(),
+                R.string.DRIVER_PREFERENCES_NAME,
+            ), Context.MODE_PRIVATE)
+
+        val colorKey = "${R.string.DRIVER_PREFERENCES_KEY_PREFIX_COLOR}" + f1Driver.driverId
+        val driverColorFromPreferences = preferences.getString(colorKey,"#ffffff")
+
+        val fontKey = "${R.string.DRIVER_PREFERENCES_KEY_PREFIX_FONT}" + f1Driver.driverId
+        val driverFontFromPreferences = preferences.getString(fontKey,null)
+
+        binding.tvDetailDriverBigNumber.text = f1Driver.permanentNumber
+        binding.tvDetailDriverBigNumber.setTextColor(Color.parseColor(driverColorFromPreferences))
+        if (driverFontFromPreferences != null) {
+            binding.tvDetailDriverBigNumber.typeface = resources.getFont(driverFontFromPreferences.toInt())
+            binding.tvDetailDriverFamilyName.typeface = resources.getFont(driverFontFromPreferences.toInt())
+        }
+
         binding.tvDetailDriverGivenName.text = f1Driver.givenName
         binding.tvDetailDriverFamilyName.text = f1Driver.familyName.uppercase()
+        binding.tvDetailDriverFamilyName.setTextColor(Color.parseColor(driverColorFromPreferences))
+
+
+        binding.cvHeaderDetail.strokeColor = Color.parseColor(driverColorFromPreferences)
 
         val date = LocalDate.parse(f1Driver.dateOfBirth)
         val formatter = DateTimeFormatter.ofPattern("dd - MMMM - yyyy")
@@ -90,9 +115,7 @@ class DriversDetailFragment : Fragment() {
 
         binding.tvDriverDetailNationality.text = f1Driver.nationality
 
-        Glide.with(requireContext())
-            .load(R.drawable.helmet_default)
-            .into(binding.ivDetailDriverImage)
+
 
         binding.btnDriverDetailMoreInfo.setOnClickListener {
             val url = f1Driver.url

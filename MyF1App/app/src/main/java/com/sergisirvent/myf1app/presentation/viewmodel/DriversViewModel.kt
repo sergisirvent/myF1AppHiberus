@@ -4,12 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sergisirvent.myf1app.data.remote.WikipediaService
 import com.sergisirvent.myf1app.domain.usecase.GetDriverDetailUseCase
 import com.sergisirvent.myf1app.domain.usecase.GetDriversUseCase
 import com.sergisirvent.myf1app.model.F1Driver
 import com.sergisirvent.myf1app.model.ResourceState
-import com.sergisirvent.myf1app.model.WikipediaResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

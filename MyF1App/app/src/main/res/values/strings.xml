@@ -18,6 +18,8 @@
     <string name="error_detail">Error fetching item</string>
     <string name="action_ok">OK</string>
     <string name="action_retry">Retry</string>
+    <string name="drivers_colors_available">12</string>
+    <string name="fonts_available">5</string>
 
     <!-- DEtail views -->
     <string name="driver_detail_title">Driver detail</string>
@@ -29,6 +31,12 @@
     <string name="circuit_detail_info_locality">Locality</string>
     <string name="circuit_detail_info_btn_maps">Open in map</string>
     <string name="error_google_maps">Please install google maps to use this button</string>
+
+    <!-- Preferences -->
+    <string name="DRIVER_PREFERENCES_NAME">driverPreferences</string>
+    <string name="DRIVER_PREFERENCES_KEY_PREFIX_COLOR">driverPreferenceColor</string>
+    <string name="DRIVER_PREFERENCES_KEY_PREFIX_FONT">driverPreferenceFont</string>
+    <string name="CIRCUIT_PREFERENCES_NAME">circiutPreferences</string>
 
 
 </resources>

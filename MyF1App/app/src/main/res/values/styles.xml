@@ -36,7 +36,7 @@
 
         <style name="detail_title_info_item" parent="TextAppearance.AppCompat">
             <item name="android:textStyle">bold</item>
-            <item name="android:textSize">@dimen/page_title_size_detail</item>
+            <item name="android:textSize">30sp</item>
         </style>
 
         <style name="detail_text_info_item" parent="TextAppearance.AppCompat">

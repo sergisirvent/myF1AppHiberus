@@ -6,7 +6,6 @@ import com.sergisirvent.myf1app.model.Circuit
 import com.sergisirvent.myf1app.model.CircuitsResponse
 import com.sergisirvent.myf1app.model.DriversResponse
 import com.sergisirvent.myf1app.model.F1Driver
-import com.sergisirvent.myf1app.model.WikipediaResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
