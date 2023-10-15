@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
@@ -118,10 +119,16 @@ class DriversDetailFragment : Fragment() {
 
 
         binding.btnDriverDetailMoreInfo.setOnClickListener {
-            val url = f1Driver.url
-            val i = Intent(Intent.ACTION_VIEW)
-            i.data = Uri.parse(url)
-            startActivity(i)
+            
+            try{
+                val url = f1Driver.url
+                val i = Intent(Intent.ACTION_VIEW)
+                i.data = Uri.parse(url)
+                startActivity(i)
+            }catch (e : Exception){
+                Toast.makeText(requireContext(),e.localizedMessage,Toast.LENGTH_LONG).show()
+            }
+
         }
 
         binding.ivDetailDriverBackArrow.setOnClickListener {

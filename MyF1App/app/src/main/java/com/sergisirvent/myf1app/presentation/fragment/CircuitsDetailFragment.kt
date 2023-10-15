@@ -85,10 +85,16 @@ class CircuitsDetailFragment : Fragment() {
             .into(binding.ivDetailCircuitImage)
 
         binding.btnCircuitDetailMoreInfo.setOnClickListener {
-            val url = circuit.url
-            val i = Intent(Intent.ACTION_VIEW)
-            i.data = Uri.parse(url)
-            startActivity(i)
+
+            try{
+                val url = circuit.url
+                val i = Intent(Intent.ACTION_VIEW)
+                i.data = Uri.parse(url)
+                startActivity(i)
+            }catch (e : Exception){
+                Toast.makeText(requireContext(),e.localizedMessage,Toast.LENGTH_LONG).show()
+            }
+
         }
 
         binding.ivDetailCircuitBackArrow.setOnClickListener {
@@ -96,15 +102,19 @@ class CircuitsDetailFragment : Fragment() {
         }
 
         binding.btnCircuitDetailMaps.setOnClickListener {
-            val googleMapsUri = Uri.parse("geo:${circuit.Location.lat.toDouble()},${circuit.Location.long.toDouble()}")
-            val mapIntent = Intent(Intent.ACTION_VIEW, googleMapsUri)
+            try{
+                val googleMapsUri = Uri.parse("geo:${circuit.Location.lat.toDouble()},${circuit.Location.long.toDouble()}")
+                val mapIntent = Intent(Intent.ACTION_VIEW, googleMapsUri)
 
-            mapIntent.setPackage("com.google.android.apps.maps")// se fuerza el uso de google maps
+                mapIntent.setPackage("com.google.android.apps.maps")// se fuerza el uso de google maps
 
-            if (mapIntent.resolveActivity(requireActivity().packageManager) != null) {
-                startActivity(mapIntent)
-            } else {
-                Toast.makeText(requireContext(),getString(R.string.error_google_maps),Toast.LENGTH_LONG).show()
+                if (mapIntent.resolveActivity(requireActivity().packageManager) != null) {
+                    startActivity(mapIntent)
+                } else {
+                    Toast.makeText(requireContext(),getString(R.string.error_google_maps),Toast.LENGTH_LONG).show()
+                }
+            }catch (e : Exception){
+                Toast.makeText(requireContext(),e.localizedMessage,Toast.LENGTH_LONG).show()
             }
         }
 
